@@ -22,9 +22,11 @@ function Movie({ addToSavedList, setUpdated }) {
   const deleteMovie = () => {
     axios
       .delete(`http://localhost:5000/api/movies/${match.params.id}`)
-      .then(setUpdated(true))
+      .then(() => {
+        setUpdated(true)
+        history.push('/')
+      })
       .catch((error) => console.error(`${error.response.status}: ${error.response.statusText}`));
-    setTimeout(() => history.push('/'), 100)
   }
 
   useEffect(() => {

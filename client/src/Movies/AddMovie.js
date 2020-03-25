@@ -3,21 +3,8 @@ import axios from 'axios';
 import { useParams, useHistory } from 'react-router-dom';
 
 const UpdateMovie = ({ movieList, setUpdated }) => {
-    const { id } = useParams();
     const history = useHistory();
-    const movie = movieList.find((movie) => movie.id === parseInt(id));
     const [state, setState] = useState({title: '', director: '', metascore: undefined, newStar: '', stars: []})
-    useEffect(() => {
-        if (movie) {
-            setState({
-                ...state,
-                title: movie.title, 
-                director: movie.director, 
-                metascore: movie.metascore, 
-                stars: movie.stars
-            })
-        }
-    }, [movie])
     const handleChange = (event) => {
         setState({
             ...state,
@@ -27,9 +14,8 @@ const UpdateMovie = ({ movieList, setUpdated }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const {newStar, ...newState} = state;
-        newState.id = parseInt(id);
         axios
-            .put(`http://localhost:5000/api/movies/${id}`, newState)
+            .post(`http://localhost:5000/api/movies/`, newState)
             .then(() => {
                 setUpdated(true)
                 history.push('/')
