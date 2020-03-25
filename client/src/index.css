@@ -89,12 +89,21 @@ body {
   background-color: darkred;
   color: white;
 }
-
+.nav-links {
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+}
 
 
 .home-button {
   padding: 5px 10px;
   background-color: lightskyblue;
+}
+
+.add-button {
+  padding: 5px 10px;
+  background-color: pink;
 }
 
 .movie-warning {
