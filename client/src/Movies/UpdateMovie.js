@@ -23,11 +23,17 @@ const UpdateMovie = ({ movieList }) => {
             [event.target.name]: event.target.value,
         })
     }
-    const addStar = (event) => {
+    const addStar = () => {
         setState({
             ...state,
             stars: [...state.stars, state.newStar],
             newStar: '',
+        })
+    }
+    const deleteStar = (index) => {
+        setState({
+            ...state,
+            stars: [...state.stars.slice(0, index), ...state.stars.slice(index + 1)]
         })
     }
     return (
@@ -50,9 +56,9 @@ const UpdateMovie = ({ movieList }) => {
                 <button type='button' onClick={addStar}>Add Star</button>
             </div>
             <ul className='stars-list'>
-                {state.stars.map((star) => {
+                {state.stars.map((star, index) => {
                     return (
-                        <li>{star}&nbsp;<button type='button' >X</button></li>
+                        <li key={index}>{star}&nbsp;<button type='button' onClick={() => deleteStar(index)}>X</button></li>
                     )
                 })}   
             </ul>
