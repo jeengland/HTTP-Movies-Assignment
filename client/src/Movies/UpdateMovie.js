@@ -48,13 +48,13 @@ const UpdateMovie = ({ movieList, setUpdated }) => {
         })
     }
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='movie-card save-wrapper' onSubmit={handleSubmit}>
             <div className='form-row'>
                 <label htmlFor='title'>Title:</label>
                 <input type='text' name='title' id='title' value={state.title} onChange={handleChange} />
             </div>
             <div className='form-row'>
-                <label htmlFor='director'>Director</label>
+                <label htmlFor='director'>Director:</label>
                 <input type='text' name='director' id='director' value={state.director} onChange={handleChange} />
             </div>
             <div className='form-row'>
@@ -64,12 +64,12 @@ const UpdateMovie = ({ movieList, setUpdated }) => {
             <div className='form-row'>
                 <label htmlFor='newStar'>Stars:</label>
                 <input type='text' name='newStar' id='newStar' value={state.newStar} onChange={handleChange} />
-                <button type='button' onClick={addStar}>Add Star</button>
+                <button type='button' className='star-button' onClick={addStar}>Add Star</button>
             </div>
             <ul className='stars-list'>
                 {state.stars.map((star, index) => {
                     return (
-                        <li key={index}>{star}&nbsp;<button type='button' onClick={() => deleteStar(index)}>X</button></li>
+                        <li key={index}>{star}&nbsp;<button className='delete-star' type='button' onClick={() => deleteStar(index)}>X</button></li>
                     )
                 })}   
             </ul>
