@@ -65,6 +65,18 @@ body {
   background-color: green;
   color: white;
 }
+.edit-button {
+  position: absolute;
+  top: 25px;
+  right: 100px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: pink;
+}
+.edit-button:hover {
+  background-color: rebeccapurple;
+  color: white;
+}
 
 .home-button {
   padding: 5px 10px;

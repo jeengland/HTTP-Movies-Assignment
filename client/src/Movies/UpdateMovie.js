@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 const UpdateMovie = ({ movieList, setUpdated }) => {
     const { id } = useParams();
+    const history = useHistory();
     const movie = movieList.find((movie) => movie.id === parseInt(id));
     const [state, setState] = useState({title: '', director: '', metascore: undefined, newStar: '', stars: []})
     useEffect(() => {
@@ -31,6 +32,7 @@ const UpdateMovie = ({ movieList, setUpdated }) => {
             .put(`http://localhost:5000/api/movies/${id}`, newState)
             .then(setUpdated(true))
             .catch((error) => console.error(`${error.response.status}: ${error.response.statusText}`))
+        history.push('/')
     }
     const addStar = () => {
         setState({
