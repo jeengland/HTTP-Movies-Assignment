@@ -77,6 +77,20 @@ body {
   background-color: rebeccapurple;
   color: white;
 }
+.delete-button {
+  position: absolute;
+  top: 25px;
+  right: 170px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: red;
+}
+.delete-button:hover {
+  background-color: darkred;
+  color: white;
+}
+
+
 
 .home-button {
   padding: 5px 10px;
