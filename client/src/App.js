@@ -10,6 +10,7 @@ import UpdateMovie from './Movies/UpdateMovie';
 const App = () => {
   const [savedList, setSavedList] = useState([]);
   const [movieList, setMovieList] = useState([]);
+  const [updated, setUpdated] = useState(false);
 
   const getMovieList = () => {
     axios
@@ -24,7 +25,8 @@ const App = () => {
 
   useEffect(() => {
     getMovieList();
-  }, []);
+    setUpdated(false);
+  }, [updated]);
 
   return (
     <>
@@ -39,7 +41,7 @@ const App = () => {
       </Route>
 
       <Route path='/update-movie/:id'>
-        <UpdateMovie movieList={movieList}/>
+        <UpdateMovie movieList={movieList} setUpdated={setUpdated}/>
       </Route>
     </>
   );
