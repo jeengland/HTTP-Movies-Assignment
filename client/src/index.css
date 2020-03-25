@@ -65,13 +65,66 @@ body {
   background-color: green;
   color: white;
 }
+.edit-button {
+  position: absolute;
+  top: 25px;
+  right: 100px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: pink;
+}
+.edit-button:hover {
+  background-color: rebeccapurple;
+  color: white;
+}
+.delete-button {
+  position: absolute;
+  top: 25px;
+  right: 170px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: red;
+}
+.delete-button:hover {
+  background-color: darkred;
+  color: white;
+}
+.nav-links {
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+}
+
 
 .home-button {
   padding: 5px 10px;
   background-color: lightskyblue;
 }
 
+.add-button {
+  padding: 5px 10px;
+  background-color: pink;
+}
+
 .movie-warning {
   color: red;
   text-align: center;
+}
+
+label {
+  text-align: right;
+  margin-right: 5px;
+  display: inline-block;
+  min-width: 8%;
+}
+
+.star-button {
+  margin-left: 1%;
+}
+
+.delete-star {
+  border: 1px solid black;
+  color: black;
+  border-radius: 5px;
+  background-color: red;
 }
