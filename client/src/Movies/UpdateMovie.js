@@ -23,6 +23,15 @@ const UpdateMovie = ({ movieList }) => {
             [event.target.name]: event.target.value,
         })
     }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const {newStar, ...newState} = state;
+        newState.id = id;
+        axios
+            .put(`http://localhost:5000/api/movies/${id}`, newState)
+            .then((response) => console.log(response))
+            .catch((error) => console.error(`${error.response.status}: ${error.response.statusText}`))
+    }
     const addStar = () => {
         setState({
             ...state,
@@ -37,7 +46,7 @@ const UpdateMovie = ({ movieList }) => {
         })
     }
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className='form-row'>
                 <label htmlFor='title'>Title:</label>
                 <input type='text' name='title' id='title' value={state.title} onChange={handleChange} />
@@ -62,6 +71,7 @@ const UpdateMovie = ({ movieList }) => {
                     )
                 })}   
             </ul>
+            <input type='submit' />
         </form>
     )
 }
